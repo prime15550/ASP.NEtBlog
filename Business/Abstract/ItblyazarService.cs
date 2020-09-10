@@ -4,10 +4,10 @@ namespace Business.Abstract
 {
   public interface ItblyazarService
   {
-      List<tblyazar> GetAll();
-      tblyazar GetById(int id);
-      void Add(tblyazar entity);
-      void Update(tblyazar entity);
-      void Delete(tblyazar entity);
+      List<Tblyazar> GetAll();
+      Tblyazar GetById(int id);
+      void Add(Tblyazar entity);
+      void Update(Tblyazar entity);
+      void Delete(Tblyazar entity);
   }
 }

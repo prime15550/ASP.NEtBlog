@@ -3,7 +3,7 @@ using Entity.Entities;
 using DataAccess.Abstract;
 namespace DataAccess.Concrete
 {
-  public class EftblmakaleetiketDal : EfEntityRepositoryBase<tblmakaleetiket, dbBlogWebContext>, ItblmakaleetiketDal
+  public class EftblmakaleetiketDal : EfEntityRepositoryBase<Tblmakaleetiket, DbblogContext>, ItblmakaleetiketDal
   {
   }
 }

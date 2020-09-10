@@ -1,15 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
 using Core.Entities;
-using System;
 
 namespace Entity.Entities
 {
-  public partial class tblyorum:IEntity
-  {
-       public int Id { get; set; }
-       public string yorum {get; set;}
-       public DateTime? date { get; set; }
-       public int userId { get; set; }
-        public int makaleId { get; set; }
-   
-}
+    public partial class Tblyorum : IEntity
+    {
+        public int Id { get; set; }
+        public string Yorum { get; set; }
+        public DateTime? Date { get; set; }
+        public int UserId { get; set; }
+        public int MakaleId { get; set; }
+
+        public virtual TblMakale Makale { get; set; }
+        public virtual Tblkullanici User { get; set; }
+    }
 }

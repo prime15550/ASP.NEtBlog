@@ -11,23 +11,23 @@ namespace Business.Concrete
       {
           _tblyazarDal = tblyazarService;
       }
-      public void Add(tblyazar entity)
+      public void Add(Tblyazar entity)
       {
            _tblyazarDal.Insert(entity);
       }
-       public void Delete(tblyazar entity)
+       public void Delete(Tblyazar entity)
       {
            _tblyazarDal.Delete(entity);
       }
-      public List<tblyazar> GetAll()
+      public List<Tblyazar> GetAll()
       {
           return _tblyazarDal.GetList();
       }
-      public tblyazar GetById(int id)
+      public Tblyazar GetById(int id)
       {
           return _tblyazarDal.Get(x => x.Id == id);
       }
-      public void Update(tblyazar entity)
+      public void Update(Tblyazar entity)
       {
           _tblyazarDal.Update(entity);
       }

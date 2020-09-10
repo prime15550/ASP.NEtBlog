@@ -11,23 +11,23 @@ namespace Business.Concrete
       {
           _tblKategoriDal = tblKategoriService;
       }
-      public void Add(tblKategori entity)
+      public void Add(TblKategori entity)
       {
            _tblKategoriDal.Insert(entity);
       }
-       public void Delete(tblKategori entity)
+       public void Delete(TblKategori entity)
       {
            _tblKategoriDal.Delete(entity);
       }
-      public List<tblKategori> GetAll()
+      public List<TblKategori> GetAll()
       {
           return _tblKategoriDal.GetList();
       }
-      public tblKategori GetById(int id)
+      public TblKategori GetById(int id)
       {
           return _tblKategoriDal.Get(x => x.Id == id);
       }
-      public void Update(tblKategori entity)
+      public void Update(TblKategori entity)
       {
           _tblKategoriDal.Update(entity);
       }

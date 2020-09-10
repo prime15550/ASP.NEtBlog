@@ -11,23 +11,23 @@ namespace Business.Concrete
       {
           _tblmakaleetiketDal = tblmakaleetiketService;
       }
-      public void Add(tblmakaleetiket entity)
+      public void Add(Tblmakaleetiket entity)
       {
            _tblmakaleetiketDal.Insert(entity);
       }
-       public void Delete(tblmakaleetiket entity)
+       public void Delete(Tblmakaleetiket entity)
       {
            _tblmakaleetiketDal.Delete(entity);
       }
-      public List<tblmakaleetiket> GetAll()
+      public List<Tblmakaleetiket> GetAll()
       {
           return _tblmakaleetiketDal.GetList();
       }
-      public tblmakaleetiket GetById(int id)
+      public Tblmakaleetiket GetById(int id)
       {
-          return _tblmakaleetiketDal.Get(x => x.makaleId == id);
+          return _tblmakaleetiketDal.Get(x => x.MakaleId == id);
       }
-      public void Update(tblmakaleetiket entity)
+      public void Update(Tblmakaleetiket entity)
       {
           _tblmakaleetiketDal.Update(entity);
       }

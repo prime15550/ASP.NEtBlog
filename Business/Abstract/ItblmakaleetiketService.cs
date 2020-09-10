@@ -4,10 +4,10 @@ namespace Business.Abstract
 {
   public interface ItblmakaleetiketService
   {
-      List<tblmakaleetiket> GetAll();
-      tblmakaleetiket GetById(int id);
-      void Add(tblmakaleetiket entity);
-      void Update(tblmakaleetiket entity);
-      void Delete(tblmakaleetiket entity);
+      List<Tblmakaleetiket> GetAll();
+      Tblmakaleetiket GetById(int id);
+      void Add(Tblmakaleetiket entity);
+      void Update(Tblmakaleetiket entity);
+      void Delete(Tblmakaleetiket entity);
   }
 }

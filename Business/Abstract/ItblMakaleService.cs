@@ -4,10 +4,10 @@ namespace Business.Abstract
 {
   public interface ItblMakaleService
   {
-      List<tblMakale> GetAll();
-      tblMakale GetById(int id);
-      void Add(tblMakale entity);
-      void Update(tblMakale entity);
-      void Delete(tblMakale entity);
+      List<TblMakale> GetAll();
+      TblMakale GetById(int id);
+      void Add(TblMakale entity);
+      void Update(TblMakale entity);
+      void Delete(TblMakale entity);
   }
 }

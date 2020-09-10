@@ -2,7 +2,7 @@ using Core.DataAccess;
 using Entity.Entities;
 namespace DataAccess.Abstract
 {
-  public interface ItblmakaleetiketDal : IEntityRepository<tblmakaleetiket>
+  public interface ItblmakaleetiketDal : IEntityRepository<Tblmakaleetiket>
   {
   }
 }

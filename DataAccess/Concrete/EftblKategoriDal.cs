@@ -3,7 +3,7 @@ using Entity.Entities;
 using DataAccess.Abstract;
 namespace DataAccess.Concrete
 {
-  public class EftblKategoriDal : EfEntityRepositoryBase<tblKategori, dbBlogWebContext>, ItblKategoriDal
+  public class EftblKategoriDal : EfEntityRepositoryBase<TblKategori, DbblogContext>, ItblKategoriDal
   {
   }
 }

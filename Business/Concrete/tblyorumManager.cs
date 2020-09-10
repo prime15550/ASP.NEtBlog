@@ -11,23 +11,23 @@ namespace Business.Concrete
       {
           _tblyorumDal = tblyorumService;
       }
-      public void Add(tblyorum entity)
+      public void Add(Tblyorum entity)
       {
            _tblyorumDal.Insert(entity);
       }
-       public void Delete(tblyorum entity)
+       public void Delete(Tblyorum entity)
       {
            _tblyorumDal.Delete(entity);
       }
-      public List<tblyorum> GetAll()
+      public List<Tblyorum> GetAll()
       {
           return _tblyorumDal.GetList();
       }
-      public tblyorum GetById(int id)
+      public Tblyorum GetById(int id)
       {
           return _tblyorumDal.Get(x => x.Id == id);
       }
-      public void Update(tblyorum entity)
+      public void Update(Tblyorum entity)
       {
           _tblyorumDal.Update(entity);
       }

@@ -11,23 +11,23 @@ namespace Business.Concrete
       {
           _tblresimDal = tblresimService;
       }
-      public void Add(tblresim entity)
+      public void Add(Tblresim entity)
       {
            _tblresimDal.Insert(entity);
       }
-       public void Delete(tblresim entity)
+       public void Delete(Tblresim entity)
       {
            _tblresimDal.Delete(entity);
       }
-      public List<tblresim> GetAll()
+      public List<Tblresim> GetAll()
       {
           return _tblresimDal.GetList();
       }
-      public tblresim GetById(int id)
+      public Tblresim GetById(int id)
       {
           return _tblresimDal.Get(x => x.Id == id);
       }
-      public void Update(tblresim entity)
+      public void Update(Tblresim entity)
       {
           _tblresimDal.Update(entity);
       }

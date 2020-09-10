@@ -4,10 +4,10 @@ namespace Business.Abstract
 {
   public interface ItblKategoriService
   {
-      List<tblKategori> GetAll();
-      tblKategori GetById(int id);
-      void Add(tblKategori entity);
-      void Update(tblKategori entity);
-      void Delete(tblKategori entity);
+      List<TblKategori> GetAll();
+      TblKategori GetById(int id);
+      void Add(TblKategori entity);
+      void Update(TblKategori entity);
+      void Delete(TblKategori entity);
   }
 }

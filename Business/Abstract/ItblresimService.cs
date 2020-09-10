@@ -4,10 +4,10 @@ namespace Business.Abstract
 {
   public interface ItblresimService
   {
-      List<tblresim> GetAll();
-      tblresim GetById(int id);
-      void Add(tblresim entity);
-      void Update(tblresim entity);
-      void Delete(tblresim entity);
+      List<Tblresim> GetAll();
+      Tblresim GetById(int id);
+      void Add(Tblresim entity);
+      void Update(Tblresim entity);
+      void Delete(Tblresim entity);
   }
 }

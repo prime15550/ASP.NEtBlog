@@ -11,23 +11,23 @@ namespace Business.Concrete
       {
           _tbletiketDal = tbletiketService;
       }
-      public void Add(tbletiket entity)
+      public void Add(Tbletiket entity)
       {
            _tbletiketDal.Insert(entity);
       }
-       public void Delete(tbletiket entity)
+       public void Delete(Tbletiket entity)
       {
            _tbletiketDal.Delete(entity);
       }
-      public List<tbletiket> GetAll()
+      public List<Tbletiket> GetAll()
       {
           return _tbletiketDal.GetList();
       }
-      public tbletiket GetById(int id)
+      public Tbletiket GetById(int id)
       {
           return _tbletiketDal.Get(x => x.Id == id);
       }
-      public void Update(tbletiket entity)
+      public void Update(Tbletiket entity)
       {
           _tbletiketDal.Update(entity);
       }

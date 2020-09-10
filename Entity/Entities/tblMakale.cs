@@ -1,17 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
 using Core.Entities;
-using System;
 
 namespace Entity.Entities
 {
-  public partial class tblMakale:IEntity
-  {
-       public int Id { get; set; }
-        public string baslik {get; set;}
-        public string aciklama {get; set;}
-        public DateTime? yuklemetarihi { get; set;}
-        public int yazarId {get; set;}
+    public partial class TblMakale : IEntity
+    {
+        public TblMakale()
+        {
+            Tblmakaleetiket = new HashSet<Tblmakaleetiket>();
+            Tblresim = new HashSet<Tblresim>();
+            Tblyorum = new HashSet<Tblyorum>();
+        }
+
+        public int Id { get; set; }
+        public string Baslik { get; set; }
+        public string Aciklama { get; set; }
+        public DateTime? Yuklemetarihi { get; set; }
+        public int YazarId { get; set; }
         public int KategoriId { get; set; }
 
-
-}
+        public virtual TblKategori Kategori { get; set; }
+        public virtual Tblyazar Yazar { get; set; }
+        public virtual ICollection<Tblmakaleetiket> Tblmakaleetiket { get; set; }
+        public virtual ICollection<Tblresim> Tblresim { get; set; }
+        public virtual ICollection<Tblyorum> Tblyorum { get; set; }
+    }
 }

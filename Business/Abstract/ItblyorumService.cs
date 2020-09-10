@@ -4,10 +4,10 @@ namespace Business.Abstract
 {
   public interface ItblyorumService
   {
-      List<tblyorum> GetAll();
-      tblyorum GetById(int id);
-      void Add(tblyorum entity);
-      void Update(tblyorum entity);
-      void Delete(tblyorum entity);
+      List<Tblyorum> GetAll();
+      Tblyorum GetById(int id);
+      void Add(Tblyorum entity);
+      void Update(Tblyorum entity);
+      void Delete(Tblyorum entity);
   }
 }

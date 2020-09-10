@@ -11,23 +11,23 @@ namespace Business.Concrete
       {
           _tblkullaniciDal = tblkullaniciService;
       }
-      public void Add(tblkullanici entity)
+      public void Add(Tblkullanici entity)
       {
            _tblkullaniciDal.Insert(entity);
       }
-       public void Delete(tblkullanici entity)
+       public void Delete(Tblkullanici entity)
       {
            _tblkullaniciDal.Delete(entity);
       }
-      public List<tblkullanici> GetAll()
+      public List<Tblkullanici> GetAll()
       {
           return _tblkullaniciDal.GetList();
       }
-      public tblkullanici GetById(int id)
+      public Tblkullanici GetById(int id)
       {
           return _tblkullaniciDal.Get(x => x.Id == id);
       }
-      public void Update(tblkullanici entity)
+      public void Update(Tblkullanici entity)
       {
           _tblkullaniciDal.Update(entity);
       }
