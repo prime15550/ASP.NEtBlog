@@ -32,7 +32,7 @@ namespace Web.Controllers
           _ItblresimService = tblresimService;
       }
 
-        public IActionResult Index(int id)
+        public IActionResult Index()
       {
           HomeMakaleDtoReponse db = new HomeMakaleDtoReponse(_ItblMakaleService, _ItblyazarService, _ItbKategoriService, _ItblyorumService, _ItbletiketService, _ItblmakaleetiketService, _ItblresimService);
           _modelMakaleIndex = new ModelMakaleIndex();

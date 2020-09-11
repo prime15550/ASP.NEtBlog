@@ -66,5 +66,42 @@ namespace Business.Dto.Response
 
             return list;
          }
+
+         public List<HomeMakaleDto> geziList()
+         {
+             List<HomeMakaleDto> list = new List<HomeMakaleDto>();
+             HomeMakaleDto makale;
+             List<TblMakale> makalelist = _ItblMakaleService.GetAll().ToList();
+             foreach (var VARIABLE in makalelist)
+             {
+                 makale = new HomeMakaleDto();
+                 makale.baslik = VARIABLE.Baslik;
+                 makale.etiket = _ItbletiketService.GetById(_ItblmakaleetiketService.getbyid(VARIABLE.Id).FirstOrDefault().EtiketId).Adi;
+                 makale.UploDateTime = VARIABLE.Yuklemetarihi;
+                 makale.aciklama = VARIABLE.Aciklama;
+                 makale.yazar = _ItblyazarService.GetById(VARIABLE.YazarId).Isim + " " +
+                                _ItblyazarService.GetById(VARIABLE.YazarId).Soyisim;
+                 makale.yazaraciklama = _ItblyazarService.GetById(VARIABLE.YazarId).Aciklama;
+                 List<Tblyorum> yorumlar = _ItblyorumService.GetAll();
+                 int count = 0;
+                 foreach (var s in yorumlar)
+                 {
+                     if (s.MakaleId == VARIABLE.Id)
+                     {
+                         count++;
+                     }
+                 }
+
+                 makale.yorumSayisi = count;
+                 makale.resimUrl = _ItblresimService.GetById(VARIABLE.Id).ResimUrl;
+                 makale.kategori = _ItbKategoriService.GetById(VARIABLE.KategoriId).Adi;
+                 if (VARIABLE.KategoriId==1)
+                 {
+                     list.Add(makale);
+                 }
+            }
+
+             return list;
+        }
    }
 }

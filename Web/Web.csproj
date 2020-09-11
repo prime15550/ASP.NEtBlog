@@ -32,6 +32,7 @@
   <Folder Include="Areas\" />
 <Folder Include="Authentication\" />
 <Folder Include="Migrations\" />
+<Folder Include="Pages\" />
 <Folder Include="Properties\" />
 <Folder Include="ViewComponents\" />
 <Folder Include="Utility\" />

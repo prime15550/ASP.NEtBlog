@@ -1,0 +1,48 @@
+﻿@model ModelMakaleIndex
+
+<div id="colorlib-main">
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-xl-8 px-md-5 py-5">
+                    <div class="row pt-md-4">
+                        @foreach (var i in Model.liste)
+                        {
+                        <div class="col-md-12">
+                           
+                            <div class="blog-entry-2 ftco-animate">
+                                <a href="~/Single/index/@i.id" class="img" style="background-image: url(../@i.resimUrl)"></a>
+                                <div class="text pt-4">
+                                    <h3 class="mb-4"><a href="~/Single/index/@i.id">@i.baslik</a></h3>
+                                    <p class="mb-4">@i.aciklama.Substring(0, 300)...</p>
+                                    <div class="author mb-4 d-flex align-items-center">
+                                        <div class="ml-3 info">
+                                            <span>Tarafından yazılmış</span>
+                                            <h3><a>@i.yazar</a>, <span>@i.UploDateTime.Value.Day/@i.UploDateTime.Value.Month/@i.UploDateTime.Value.Year</span></h3>
+                                        </div>
+                                    </div>
+                                    <div class="meta-wrap d-md-flex align-items-center">
+                                        <div class="half order-md-last text-md-right">
+                                            <p class="meta">
+
+                                                <span><i class="icon-comment"></i>@i.yorumSayisi</span>
+                                            </p>
+                                        </div>
+                                        <div class="half">
+                                            <p><a href="~/Single/index/@i.id " class="btn btn-primary p-3 px-xl-4 py-xl-3">Okumaya Devam Edin</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        }
+
+                    </div><!-- END-->
+
+                </div>
+                <!-- END COL -->
+            </div>
+        </div>
+    </section>
+</div>
+
