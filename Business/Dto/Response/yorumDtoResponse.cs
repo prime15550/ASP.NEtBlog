@@ -31,6 +31,7 @@ namespace Business.Dto.Response
                 yorum = new yorumDto();
                 yorum.Date = i.Date;
                 yorum.MakaleId = i.MakaleId;
+                yorum.Yorum = i.Yorum;
                 yorum.Id = i.Id;
                 yorum.User = _ItblkullaniciService.GetById(i.UserId).Isim + " " +
                              _ItblkullaniciService.GetById(i.UserId).Soyisim;

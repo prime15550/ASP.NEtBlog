@@ -59,11 +59,11 @@ namespace Web.Controllers
                 }
             }
 
+            homeMakaleDto.yorumlar = new List<yorumDto>();
             foreach (var VARIABLE in db1.yorumlist())
             {
                 if (id+1 == VARIABLE.MakaleId)
                 {
-                    homeMakaleDto.yorumlar = new List<yorumDto>();
                     homeMakaleDto.yorumlar.Add(VARIABLE);
                 }
                 
@@ -77,25 +77,50 @@ namespace Web.Controllers
         public IActionResult Index(ModelMakale makale)
         {
             int id = _ItblkullaniciService.iskullaniciExists(makale.YorumSubmit.email, makale.YorumSubmit.password);
-
             string Url = Request.GetDisplayUrl();
             string[] sub = Url.Split("/");
             int length = sub.Length;
             int id1 = Int32.Parse(sub[length - 1].Substring(0, 1));
-            if (id!=-999)
+            if (id != -999)
             {
                 _ItblyorumService.Add(new Tblyorum()
                 {
-                    Id = _ItblyorumService.GetAll().Count+1,
+                    Id = _ItblyorumService.GetAll().Count + 1,
                     Date = DateTime.Now,
-                    MakaleId = id1+1,
+                    MakaleId = id1 + 1,
                     UserId = id,
                     Yorum = makale.YorumSubmit.message
-                    
+
                 });
-                
+
             }
-            return View("Index");
+            HomeMakaleDtoReponse db = new HomeMakaleDtoReponse(_ItblMakaleService, _ItblyazarService, _ItbKategoriService, _ItblyorumService, _ItbletiketService, _ItblmakaleetiketService, _ItblresimService);
+            yorumDtoResponse db1 = new yorumDtoResponse(_ItblyorumService, _ItblkullaniciService);
+            _modelMakaleIndex = new ModelMakaleIndex();
+            _modelMakaleIndex.liste = db.MakaleList();
+            homeMakaleDto = new ModelMakale();
+            
+           
+            
+            foreach (var VARIABLE in _modelMakaleIndex.liste)
+            {
+                if (id1 == VARIABLE.id)
+                {
+                    homeMakaleDto.makale = VARIABLE;
+                }
+            }
+
+            homeMakaleDto.yorumlar = new List<yorumDto>();
+            foreach (var VARIABLE in db1.yorumlist())
+            {
+                if (id1 + 1 == VARIABLE.MakaleId)
+                {
+                    homeMakaleDto.yorumlar.Add(VARIABLE);
+                }
+            }
+
+            return View(homeMakaleDto);
+            
         }
 
     }
