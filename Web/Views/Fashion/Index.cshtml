@@ -1,0 +1,33 @@
+﻿@model ModelMakaleIndex
+<div id="colorlib-main">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row px-md-4">
+                @foreach (var i in @Model.liste){
+
+                    <div class="col-md-12">
+                        <div class="blog-entry ftco-animate d-md-flex">
+                            <a href="~/Single/index/@i.id" class="img img-2" style="background-image: url(../@i.resimUrl)"></a>
+                            <div class="text text-2 pl-md-4">
+                                <h3 class="mb-2"><a href="~/Single/index/@i.id">@i.baslik</a></h3>
+                                <div class="meta-wrap">
+                                    <p class="meta">
+                                        <span><i class="icon-calendar mr-2"></i>@i.UploDateTime.Value.Day/@i.UploDateTime.Value.Month/@i.UploDateTime.Value.Year</span>
+                                        <span><a href="~/Single/index/@i.id"><i class="icon-folder-o mr-2"></i>@i.etiket</a></span>
+                                        <span><i class="icon-comment2 mr-2"></i>@i.yorumSayisi Yorum</span>
+                                    </p>
+                                </div>
+                                <p class="mb-4">@i.aciklama.Substring(0,200)</p>
+                                <p><a href="~/Single/index/@i.id" class="btn-custom"><span class="ion-ios-arrow-forward"></span></a></p>
+                                <p><a href="~/Single/index/@i.id" class="btn-custom">Daha<span class="ion-ios-arrow-forward"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+
+            </div>
+            
+        </div>
+    </section>
+</div>
