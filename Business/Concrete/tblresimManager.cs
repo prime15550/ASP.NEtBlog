@@ -25,7 +25,7 @@ namespace Business.Concrete
       }
       public Tblresim GetById(int id)
       {
-          return _tblresimDal.Get(x => x.Id == id);
+          return _tblresimDal.Get(x => x.MakaleId == id);
       }
       public void Update(Tblresim entity)
       {

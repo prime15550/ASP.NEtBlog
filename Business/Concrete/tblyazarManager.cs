@@ -31,5 +31,10 @@ namespace Business.Concrete
       {
           _tblyazarDal.Update(entity);
       }
-  }
+
+    List<Tblyazar> ItblyazarService.Getbyid(int id)
+        {
+            return _tblyazarDal.GetList(x => x.Id == id);
+        }
+    }
 }

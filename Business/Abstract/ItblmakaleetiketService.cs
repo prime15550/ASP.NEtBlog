@@ -9,5 +9,6 @@ namespace Business.Abstract
       void Add(Tblmakaleetiket entity);
       void Update(Tblmakaleetiket entity);
       void Delete(Tblmakaleetiket entity);
+      List<Tblmakaleetiket> getbyid(int id);
   }
 }

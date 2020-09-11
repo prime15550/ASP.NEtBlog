@@ -31,5 +31,10 @@ namespace Business.Concrete
       {
           _tblmakaleetiketDal.Update(entity);
       }
+
+      public List<Tblmakaleetiket> getbyid(int id)
+      {
+          return _tblmakaleetiketDal.GetList(x => x.MakaleId == id);
+      }
   }
 }

@@ -9,5 +9,6 @@ namespace Business.Abstract
       void Add(Tblyazar entity);
       void Update(Tblyazar entity);
       void Delete(Tblyazar entity);
-  }
+      List<Tblyazar> Getbyid(int id);
+    }
 }

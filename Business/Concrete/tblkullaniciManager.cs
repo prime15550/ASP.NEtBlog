@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using Entity.Entities;
 using Business.Abstract;
 using DataAccess.Abstract;
@@ -19,7 +20,22 @@ namespace Business.Concrete
       {
            _tblkullaniciDal.Delete(entity);
       }
-      public List<Tblkullanici> GetAll()
+
+       public int iskullaniciExists(string email, string password)
+       {
+           int id = -999;
+           foreach (var VARIABLE in _tblkullaniciDal.GetList())
+           {
+               if (VARIABLE.Mail==email&&VARIABLE.Password==password)
+               {
+                   id = VARIABLE.Id;
+               }
+           }
+
+           return id;
+       }
+
+       public List<Tblkullanici> GetAll()
       {
           return _tblkullaniciDal.GetList();
       }

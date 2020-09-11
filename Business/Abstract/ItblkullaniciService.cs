@@ -9,5 +9,7 @@ namespace Business.Abstract
       void Add(Tblkullanici entity);
       void Update(Tblkullanici entity);
       void Delete(Tblkullanici entity);
+
+      int iskullaniciExists(string email, string password);
   }
 }
