@@ -62,7 +62,7 @@ namespace Web.Controllers
             homeMakaleDto.yorumlar = new List<yorumDto>();
             foreach (var VARIABLE in db1.yorumlist())
             {
-                if (id+1 == VARIABLE.MakaleId)
+                if (id == VARIABLE.MakaleId)
                 {
                     homeMakaleDto.yorumlar.Add(VARIABLE);
                 }
