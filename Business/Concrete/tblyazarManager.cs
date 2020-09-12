@@ -36,5 +36,20 @@ namespace Business.Concrete
         {
             return _tblyazarDal.GetList(x => x.Id == id);
         }
+
+    public int yazarid(string email, string sifre)
+    {
+        int id = -999;
+        List<Tblyazar> list = _tblyazarDal.GetList();
+        foreach (var VARIABLE in list)
+        {
+            if (VARIABLE.Mail==email&&VARIABLE.Password==sifre)
+            {
+                id = VARIABLE.Id;
+            }
+        }
+
+        return id;
     }
+  }
 }

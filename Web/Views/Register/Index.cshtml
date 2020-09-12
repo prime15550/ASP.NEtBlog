@@ -1,10 +1,27 @@
-﻿@{
+﻿@model ModelUser
+@{
     Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="tr">
 
+<script>
+    function change(sel) {
+        if (sel.selectedIndex == 1) {
+            
+            document.getElementById('select').innerHTML = "Açıklama";
+
+        } else {
+            document.getElementById('select').innerHTML = "Username";
+        }
+    }
+
+    function submit() {
+        
+    }
+
+</script>
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -38,31 +55,32 @@
                     <h2 class="title">Kayıt Ekranı</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST">
+                    <form asp-controller="Register" asp-action="Index" method="POST">
                         <div class="form-row m-b-55">
                             <div class="name">İsim Soyisim</div>
                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="isim">
-                                            <label class="label--desc">first name</label>
+                                            @Html.TextBoxFor(model=>model.isim,new{@class="input--style-5" ,@type="text" ,@name="isim"})
+                                            <label class="label--desc">Isim</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="Soyisim">
-                                            <label class="label--desc">last name</label>
+                                            @Html.TextBoxFor(model=>model.soyisim,new{@class="input--style-5" ,@type="text" ,@name="soyisim"})
+                                            <label class="label--desc">Soyisim</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                       
                         <div class="form-row">
-                            <div class="name">Username</div>
+                            <div id="select" class="name">Username</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="Username">
+                                    @Html.TextBoxFor(model=>model.username,new{@class="input--style-5" ,@type="text" ,@name= "username" })
                                 </div>
                             </div>
                         </div>
@@ -70,7 +88,7 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
+                                    @Html.TextBoxFor(model => model.email, new { @class = "input--style-5", @type = "email", @name = "email" })
                                 </div>
                             </div>
                         </div>
@@ -78,7 +96,7 @@
                             <div class="name">Şifre</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="password" name="password">
+                                    @Html.TextBoxFor(model => model.sifre, new { @class = "input--style-5", @type = "password", @name = "password" })
                                 </div>
                             </div>
                         </div>
@@ -95,11 +113,13 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                            <option disabled="disabled" selected="selected">Lütfen Birini Seçiniz</option>
-                                            <option>Yazar(Makale ekler)</option>
-                                            <option>Kullanıcı(Yorum yapar)</option>
-                                        </select>
+                                        @Html.DropDownListFor(model=>model.isyazar,new List<SelectListItem>
+                                        {
+                                            new SelectListItem("Lütfen Birini Seçiniz","0",true,true),
+                                            new SelectListItem("Yazar(Makale ekler)","1",false,false),
+                                            new SelectListItem("Kullanıcı(Yorum yapar)","2",false,false)
+                                        },null,new{@name= "tür",@onchange="change(this)"})
+                                       
                                         <div class="select-dropdown"></div>
                                     </div>
                                 </div>

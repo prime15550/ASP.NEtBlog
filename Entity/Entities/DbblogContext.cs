@@ -198,6 +198,9 @@ namespace Entity.Entities
                 entity.Property(e => e.Soyisim)
                     .HasColumnName("soyisim")
                     .HasMaxLength(50);
+                entity.Property(e => e.Password)
+                    .HasColumnName("password")
+                    .HasMaxLength(200);
             });
 
             modelBuilder.Entity<Tblyorum>(entity =>

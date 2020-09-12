@@ -16,6 +16,7 @@ namespace Entity.Entities
         public string Soyisim { get; set; }
         public string Mail { get; set; }
         public string Aciklama { get; set; }
+        public string Password { get; set; }
 
         public virtual ICollection<TblMakale> TblMakale { get; set; }
     }

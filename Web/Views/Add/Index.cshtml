@@ -1,4 +1,5 @@
-﻿<div id="colorlib-main">
+﻿@model ModelMakaleAdd
+<div id="colorlib-main">
     <section class="ftco-section contact-section px-md-4">
         <div class="container">
             <div class="row d-flex mb-5 contact-info">
@@ -10,32 +11,36 @@
             </div>
             <div class="row block-9">
                 <div class="col-lg-12 d-flex">
-                    <form action="#" class="bg-light p-5 contact-form">
+                    <form asp-controller="Add" asp-action="Index" class="bg-light p-5 contact-form" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Emailiniz">
+                            @Html.TextBoxFor(model => Model.email,new {@class="form-control" ,@type="text",@placeholder="Email Giriniz"})
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Şifreniz">
+                            @Html.TextBoxFor(model => Model.sifre,new {@class="form-control" ,@type="password",@placeholder="Şifenizi Giriniz"})
+
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Başlık">
+                            @Html.TextBoxFor(model => Model.baslik, new { @class = "form-control", @type = "text", @placeholder = "Başlık" })
                         </div>
                         <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="İçerik"></textarea>
+                            @Html.TextAreaFor(model=>model.icerik,20,30,new{@class="form-control", @placeholder = "İçerik" })
+                            
                         </div>
                         <div class="input-group mb-3 mx-3">
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="subject">
-                                    <option disabled="disabled" selected="selected">Lütfen Kategori Seçiniz</option>
-                                    <option>Gezi</option>
-                                    <option>Magazin</option>
-                                </select>
+                                @Html.DropDownListFor(model=>model.kategoriID,new List<SelectListItem>
+                                {
+                                    new SelectListItem("Lütfen Kategori Seçiniz","0",true,true),
+                                    new SelectListItem("Gezi","1",false,false),
+                                    new SelectListItem("Magazin","2",false,false)
+                                },null,new{@name= "tür"})
+                                
                                 <div class="select-dropdown"></div>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="Paylaş" class="btn btn-primary py-3 px-5">
+                            <input type="submit" align="center" value="Paylaş" class="btn btn-primary py-3 px-5">
                         </div>
                     </form>
 

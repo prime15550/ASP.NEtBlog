@@ -26,7 +26,7 @@
                         </div>
 
 
-                        <div class="pt-5 mt-5">
+                        <div class="pt-5 mt-5 col-md-12">
                             <h3 class="mb-5 font-weight-bold">@Model.makale.yorumSayisi Yorum</h3>
                             <ul class="comment-list">
                                 @if (@Model.makale.yorumSayisi!=0){
@@ -52,22 +52,22 @@
                             <!-- END comment-list -->
 
                             <div class="comment-form-wrap pt-5">
-                                <h3 class="mb-5">Yorum Yap</h3>
+                                <h3 class="mb-5" align="center">Yorum Yap</h3>
 
 
                                 @using (Html.BeginForm("Index", "Single", FormMethod.Post, new { @class = "p-3 p-md-5 bg-light" }))
                                 {
                                     <div class="form-group">
                                         <label for="email">Email *</label>
-                                        @Html.TextBoxFor(model => Model.YorumSubmit.email)
+                                        @Html.TextBoxFor(model => Model.YorumSubmit.email,new {@class="form-control"})
                                     </div>
                                     <div class="form-group">
                                         <label for="password">Şifre *</label>
-                                        @Html.PasswordFor(Model => Model.YorumSubmit.password)
+                                        @Html.PasswordFor(Model => Model.YorumSubmit.password, new { @class = "form-control" })
                                     </div>
                                     <div class="form-group">
                                         <label for="message">Message</label>
-                                        @Html.TextAreaFor(model => Model.YorumSubmit.message)
+                                        @Html.TextAreaFor(model => Model.YorumSubmit.message, new { @class = "form-control" })
                                     </div>
                                     <input type="submit" value="Paylaş" class="btn py-3 px-4 btn-primary" onclick="paylas">
                                 }

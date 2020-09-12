@@ -10,5 +10,6 @@ namespace Business.Abstract
       void Update(Tblyazar entity);
       void Delete(Tblyazar entity);
       List<Tblyazar> Getbyid(int id);
-    }
+      int yazarid(string email, string sifre);
+  }
 }
