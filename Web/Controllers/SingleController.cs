@@ -87,7 +87,7 @@ namespace Web.Controllers
                 {
                     Id = _ItblyorumService.GetAll().Count + 1,
                     Date = DateTime.Now,
-                    MakaleId = id1 + 1,
+                    MakaleId = id1 ,
                     UserId = id,
                     Yorum = makale.YorumSubmit.message
 
@@ -113,7 +113,7 @@ namespace Web.Controllers
             homeMakaleDto.yorumlar = new List<yorumDto>();
             foreach (var VARIABLE in db1.yorumlist())
             {
-                if (id1 + 1 == VARIABLE.MakaleId)
+                if (id1  == VARIABLE.MakaleId)
                 {
                     homeMakaleDto.yorumlar.Add(VARIABLE);
                 }

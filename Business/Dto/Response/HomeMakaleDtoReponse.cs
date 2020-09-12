@@ -41,6 +41,7 @@ namespace Business.Dto.Response
             foreach (var VARIABLE in makalelist)
             {
                 makale = new HomeMakaleDto();
+                makale.id = VARIABLE.Id;
                 makale.baslik = VARIABLE.Baslik;
                 makale.etiket = _ItbletiketService.GetById(_ItblmakaleetiketService.getbyid(VARIABLE.Id).FirstOrDefault().EtiketId).Adi;
                 makale.UploDateTime = VARIABLE.Yuklemetarihi;
