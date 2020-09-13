@@ -12,7 +12,13 @@
     }
 
     function submit() {
-
+        if (document.getElementsByName("isim") == "" || document.getElementsByName("soyisim") == "" || document.getElementsByName("username") == "" || document.getElementsByName("email") == "" || document.getElementsByName("password") == "") {
+            alert("Bir Alanı Eksik Bıraktınız Lütfen Tekrar Kontrol Ediniz");
+            windows.history.back();
+        } else {
+            alert("Başarıyla Kayıt Edildi");
+        }
+        
     }
 
 </script>
@@ -53,20 +59,28 @@
                     <h2 class="title">Kayıt Ekranı</h2>
                 </div>
                 <div class="card-body">
-                    <form asp-controller="Register" asp-action="Index" method="POST">
+
+                    @if (Model!=null&&Model.isitexits)
+                    {
+                        <div class="alert" align="center" >
+                            <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span>
+                            @Model.email emaile kayıtlı Kullanıcı/Yazar Zaten var
+                        </div>
+                    }
+                    <form onsubmit="submit();" asp-controller="Register" asp-action="Index" method="POST">
                         <div class="form-row m-b-55">
                             <div class="name">İsim Soyisim</div>
                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            @Html.TextBoxFor(model => model.isim, new { @class = "input--style-5", @type = "text", @name = "isim" })
+                                            @Html.TextBoxFor(model => model.isim, new {@class = "input--style-5", @type = "text", @name = "isim"})
                                             <label class="label--desc">Isim</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            @Html.TextBoxFor(model => model.soyisim, new { @class = "input--style-5", @type = "text", @name = "soyisim" })
+                                            @Html.TextBoxFor(model => model.soyisim, new {@class = "input--style-5", @type = "text", @name = "soyisim"})
                                             <label class="label--desc">Soyisim</label>
                                         </div>
                                     </div>
@@ -78,7 +92,7 @@
                             <div id="select" class="name">Username</div>
                             <div class="value">
                                 <div class="input-group">
-                                    @Html.TextBoxFor(model => model.username, new { @class = "input--style-5", @type = "text", @name = "username" })
+                                    @Html.TextBoxFor(model => model.username, new {@class = "input--style-5", @type = "text", @name = "username"})
                                 </div>
                             </div>
                         </div>
@@ -86,7 +100,7 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    @Html.TextBoxFor(model => model.email, new { @class = "input--style-5", @type = "email", @name = "email" })
+                                    @Html.TextBoxFor(model => model.email, new {@class = "input--style-5", @type = "email", @name = "email"})
                                 </div>
                             </div>
                         </div>
@@ -94,7 +108,7 @@
                             <div class="name">Şifre</div>
                             <div class="value">
                                 <div class="input-group">
-                                    @Html.TextBoxFor(model => model.sifre, new { @class = "input--style-5", @type = "password", @name = "password" })
+                                    @Html.TextBoxFor(model => model.sifre, new {@class = "input--style-5", @type = "password", @name = "password"})
                                     @Html.ValidationMessageFor(model => model.sifre)
                                 </div>
                             </div>
@@ -103,7 +117,7 @@
                             <div class="name">Şifre Tekrar</div>
                             <div class="value">
                                 <div class="input-group">
-                                    @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "input--style-5", @type = "password", @name = "password" })
+                                    @Html.TextBoxFor(model => model.ConfirmPassword, new {@class = "input--style-5", @type = "password", @name = "password"})
                                     @Html.ValidationMessageFor(model => model.ConfirmPassword)
                                 </div>
                             </div>
@@ -114,11 +128,11 @@
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
                                         @Html.DropDownListFor(model => model.isyazar, new List<SelectListItem>
-                                                                                                {
-                                            new SelectListItem("Lütfen Birini Seçiniz","0",true,true),
-                                            new SelectListItem("Yazar(Makale ekler)","1",false,false),
-                                            new SelectListItem("Kullanıcı(Yorum yapar)","2",false,false)
-                                        }, null, new { @name = "tür", @onchange = "change(this)" })
+                                        {
+                                            new SelectListItem("Lütfen Birini Seçiniz", "0", true, true),
+                                            new SelectListItem("Yazar(Makale ekler)", "1", false, false),
+                                            new SelectListItem("Kullanıcı(Yorum yapar)", "2", false, false)
+                                        }, null, new {@name = "tür", @onchange = "change(this)"})
 
                                         <div class="select-dropdown"></div>
                                     </div>
@@ -127,7 +141,7 @@
                         </div>
                         <div>
 
-                            <button class="btn btn--radius-2 btn--red" type="submit">Kayıt Ol</button>
+                            <button class="btn btn--radius-2 btn--red" onclick="submit()" type="submit">Kayıt Ol</button>
                             <button class="btn btn--radius-2 btn--red" type="button" onclick="window.location.href = '../Home/index'">İptal</button>
 
                         </div>
