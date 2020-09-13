@@ -84,6 +84,7 @@ namespace Business.Dto.Response
              {
                  makale = new HomeMakaleDto();
                  makale.baslik = VARIABLE.Baslik;
+                 makale.id = VARIABLE.Id;
                  makale.etiket = _ItbletiketService.GetById(_ItblmakaleetiketService.getbyid(VARIABLE.Id).FirstOrDefault().EtiketId).Adi;
                  makale.UploDateTime = VARIABLE.Yuklemetarihi;
                  makale.aciklama = VARIABLE.Aciklama;
@@ -121,6 +122,7 @@ namespace Business.Dto.Response
              {
                  makale = new HomeMakaleDto();
                  makale.baslik = VARIABLE.Baslik;
+                 makale.id = VARIABLE.Id;
                  makale.etiket = _ItbletiketService.GetById(_ItblmakaleetiketService.getbyid(VARIABLE.Id).FirstOrDefault().EtiketId).Adi;
                  makale.UploDateTime = VARIABLE.Yuklemetarihi;
                  makale.aciklama = VARIABLE.Aciklama;
