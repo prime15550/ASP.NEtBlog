@@ -21,6 +21,10 @@ namespace Web.Controllers
             _ItblyazarService = ItblyazarService;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
        
         [HttpPost]
         public IActionResult Index(ModelUser user )
@@ -84,7 +88,6 @@ namespace Web.Controllers
                     
                 }
 
-                user.isitexits = false;
             }
             else
             {

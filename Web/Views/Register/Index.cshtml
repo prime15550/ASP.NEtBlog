@@ -2,26 +2,26 @@
 @{
     Layout = null;
 }
+    <script>
+        function change(sel) {
+            if (sel.selectedIndex == 1) {
 
+                document.getElementById('select').innerHTML = "Açıklama";
+
+            } else {
+                document.getElementById('select').innerHTML = "Username";
+            }
+        }
+
+        function submit() {
+
+        }
+
+    </script>
 <!DOCTYPE html>
 <html lang="tr">
 
-<script>
-    function change(sel) {
-        if (sel.selectedIndex == 1) {
-            
-            document.getElementById('select').innerHTML = "Açıklama";
 
-        } else {
-            document.getElementById('select').innerHTML = "Username";
-        }
-    }
-
-    function submit() {
-        
-    }
-
-</script>
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">

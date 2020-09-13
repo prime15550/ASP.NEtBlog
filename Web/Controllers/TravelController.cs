@@ -12,7 +12,6 @@ namespace Web.Controllers
     public class TravelController : Controller
     {
         ModelMakaleIndex _modelMakaleIndex;
-        ModelMakale homeMakaleDto;
         ItblMakaleService _ItblMakaleService;
         ItblyazarService _ItblyazarService;
         ItblKategoriService _ItbKategoriService;

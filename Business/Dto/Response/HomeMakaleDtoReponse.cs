@@ -60,7 +60,14 @@ namespace Business.Dto.Response
                 }
 
                 makale.yorumSayisi = count;
-                makale.resimUrl = _ItblresimService.GetById(VARIABLE.Id).ResimUrl;
+                if (_ItblresimService.GetById(VARIABLE.Id)!=null)
+                {
+                    makale.resimUrl = _ItblresimService.GetById(VARIABLE.Id).ResimUrl;
+                }
+                else
+                {
+                    makale.resimUrl = "images/image_3";
+                }
                 makale.kategori = _ItbKategoriService.GetById(VARIABLE.KategoriId).Adi;
                 list.Add(makale);
             }

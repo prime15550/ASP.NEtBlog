@@ -14,7 +14,15 @@
                                 <a href="~/Single/index/@i.id" class="img" style="background-image: url(../@i.resimUrl)"></a>
                                 <div class="text pt-4">
                                     <h3 class="mb-4"><a href="~/Single/index/@i.id">@i.baslik</a></h3>
-                                    <p class="mb-4">@i.aciklama.Substring(0, 300)...</p>
+                                    <p class="mb-4">@if (i.aciklama.Length<300)
+                                                    {
+                                                        <p> @i.aciklama</p> 
+                                                    }
+                                                    else
+                                                    {
+                                                        <p> @i.aciklama.Substring(0, 300)
+                                                            ...</p>
+                                                    }...</p>
                                     <div class="author mb-4 d-flex align-items-center">
                                         <div class="ml-3 info">
                                             <span>Tarafından yazılmış</span>

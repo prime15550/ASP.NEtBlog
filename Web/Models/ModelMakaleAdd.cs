@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Blog.Models
 {
@@ -18,6 +19,9 @@ namespace Blog.Models
         public int kategoriID { get; set; }
         [Required]
         public string icerik { get; set; }
+        public IFormFile resimurl { get; set; }
+
+        
 
     }
 }

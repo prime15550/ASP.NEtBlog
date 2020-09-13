@@ -13,7 +13,6 @@ namespace Web.Controllers
     public class FashionController : Controller
     {
         ModelMakaleIndex _modelMakaleIndex;
-        ModelMakale homeMakaleDto;
         ItblMakaleService _ItblMakaleService;
         ItblyazarService _ItblyazarService;
         ItblKategoriService _ItbKategoriService;

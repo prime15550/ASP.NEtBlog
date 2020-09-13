@@ -26,7 +26,15 @@
                                                 <span><i class="icon-comment2 mr-2"></i>@i.yorumSayisi</span>
                                             </p>
                                         </div>
-                                        <p class="mb-4">@i.aciklama.Substring(0,200)...</p>
+                                        <p class="mb-4">@if (i.aciklama.Length<200)
+                                                        {
+                                                            @i.aciklama
+                                                        }
+                                                        else
+                                                        {
+                                                             @i.aciklama.Substring(0, 200)
+                                                            
+                                                        }...</p>
                                         <p><a href="~/Single/index/@i.id" class="btn-custom">Daha <span class="ion-ios-arrow-forward"></span></a></p>
                                     </div>
                                 </div>
