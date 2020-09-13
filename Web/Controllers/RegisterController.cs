@@ -11,7 +11,7 @@ namespace Web.Controllers
 {
     public class RegisterController : Controller
     {
-       
+
         ItblkullaniciService _ItblkullaniciService;
         ItblyazarService _ItblyazarService;
 
@@ -25,15 +25,15 @@ namespace Web.Controllers
         {
             return View();
         }
-       
+
         [HttpPost]
-        public IActionResult Index(ModelUser user )
+        public IActionResult Index(ModelUser user)
         {
-            
-            bool isitexists = false; 
+
+            bool isitexists = false;
             List<Tblkullanici> list = _ItblkullaniciService.GetAll().ToList();
             List<Tblyazar> list1 = _ItblyazarService.GetAll().ToList();
-            if ( user.isyazar==1)
+            if (user.isyazar == 1)
             {
                 foreach (var VARIABLE in list1)
                 {
@@ -57,7 +57,7 @@ namespace Web.Controllers
 
             if (!isitexists)
             {
-                if (!(user.isyazar==1))
+                if (!(user.isyazar == 1) && user.sifre == user.ConfirmPassword)
                 {
                     _ItblkullaniciService.Add(new Tblkullanici()
                     {
@@ -70,22 +70,26 @@ namespace Web.Controllers
                     });
                     return Redirect("~/Home/index");
                 }
+                else if (user.isyazar == 1 && user.sifre == user.ConfirmPassword)
+                {
+
+                    _ItblyazarService.Add(new Tblyazar()
+                    {
+                        Id = list1.Count + 1,
+                        Isim = user.isim,
+                        Soyisim = user.soyisim,
+                        Mail = user.email,
+                        Password = user.sifre,
+                        Aciklama = user.username
+
+
+                    });
+                    return Redirect("~/Home/index");
+
+                }
                 else
                 {
-                   
-                        _ItblyazarService.Add(new Tblyazar()
-                        {
-                            Id = list1.Count + 1,
-                            Isim = user.isim,
-                            Soyisim = user.soyisim,
-                            Mail = user.email,
-                            Password = user.sifre,
-                            Aciklama = user.username
-                           
-
-                        });
-                      return Redirect("~/Home/index");
-                    
+                    return View();
                 }
 
             }
@@ -95,7 +99,7 @@ namespace Web.Controllers
 
                 return View(user);
             }
-            
+
         }
     }
 }
