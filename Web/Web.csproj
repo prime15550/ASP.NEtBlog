@@ -47,7 +47,6 @@
 <Folder Include="Properties\" />
 <Folder Include="ViewComponents\" />
 <Folder Include="Utility\" />
-<Folder Include="wwwroot\images\resimler\" />
 
 </ItemGroup>
 <ItemGroup>
